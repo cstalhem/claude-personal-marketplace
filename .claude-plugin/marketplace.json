@@ -1,0 +1,13 @@
+{
+  "name": "Personal Marketplace",
+  "owner": {
+    "name": "Carl Stålhem"
+  },
+  "plugins": [
+    {
+      "name": "obsidian",
+      "source": "./plugins/obsidian",
+      "description": "A plugin to work with Obsidian vaults."
+    }
+  ]
+}

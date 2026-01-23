@@ -1,7 +1,7 @@
 {
   "name": "obsidian",
   "description": "A plugin to work with Obsidian vaults.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Carl Stålhem"
   }

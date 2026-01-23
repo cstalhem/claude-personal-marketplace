@@ -40,7 +40,7 @@ awk '
     gsub(/&lt;/, "<", line)
     gsub(/&gt;/, ">", line)
     gsub(/&quot;/, "\"", line)
-    gsub(/&#39;/, "'", line)
+    gsub(/&#39;/, "\047", line)
     return line
   }
 

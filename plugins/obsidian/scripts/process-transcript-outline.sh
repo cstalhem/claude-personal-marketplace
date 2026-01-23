@@ -58,7 +58,7 @@ awk '
     return out
   }
 
-  function assign_id(name,    candidate, index) {
+  function assign_id(name,    candidate, index_key) {
     if (name in speaker_ids) {
       return speaker_ids[name]
     }

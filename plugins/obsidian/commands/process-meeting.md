@@ -1,19 +1,23 @@
 ---
 name: process-meeting
 description: Process Obsidian meeting transcripts or rough meeting notes into structured meeting notes that follow the vault's meeting template, with tags, participants, action items, and clear separation of on-topic vs off-topic content. Use when the user asks to process a meeting transcript or finalize a meeting note.
-argument-hint: "[meeting-note-path] [transcript-path]"
+argument-hint: "[transcript-path] [meeting-note-path]"
 disable-model-invocation: true
 ---
 
 # Process meeting notes
 
+File paths: $ARGUMENTS
+
 ## Overview
 
 Turn a raw meeting transcript into a clean, structured meeting note in the Obsidian vault.
 
-## Background
-- Provide the raw transcript to the process-script
+## Background context
+- Provide the raw transcript file to the process-script:
+  - `bash ${CLAUDE_PLUGIN_ROOT}/scripts/process-transcript-outline.sh [filepath]`
 - Check the meeting template, tagging conventions, and note-taking conventions
+- Never read transcript files directly, only read the output from the script
 
 ## Workflow
 - Rewrite the content from the transcript to match the template according to our conventions

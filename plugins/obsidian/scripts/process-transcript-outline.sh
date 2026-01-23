@@ -23,7 +23,7 @@ fi
 #    - remove WEBVTT header, cue IDs, and end timestamps
 #    - collapse excess whitespace
 awk '
-  function decode_entities(line,    prefix, rest, match, code, hex, out) {
+  function decode_entities(line,    prefix, rest, match_pos, code, hex, out) {
     while (match(line, /&#[0-9]+;/)) {
       prefix = substr(line, 1, RSTART - 1)
       rest = substr(line, RSTART + RLENGTH)

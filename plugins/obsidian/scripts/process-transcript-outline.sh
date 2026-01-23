@@ -23,18 +23,40 @@ fi
 #    - remove WEBVTT header, cue IDs, and end timestamps
 #    - collapse excess whitespace
 awk '
+  function codepoint_to_utf8(code,    b1, b2, b3, b4) {
+    if (code < 128) {
+      return sprintf("%c", code)
+    }
+    if (code < 2048) {
+      b1 = int(code / 64) + 192
+      b2 = (code % 64) + 128
+      return sprintf("%c%c", b1, b2)
+    }
+    if (code < 65536) {
+      b1 = int(code / 4096) + 224
+      b2 = int(code / 64) % 64 + 128
+      b3 = (code % 64) + 128
+      return sprintf("%c%c%c", b1, b2, b3)
+    }
+    b1 = int(code / 262144) + 240
+    b2 = int(code / 4096) % 64 + 128
+    b3 = int(code / 64) % 64 + 128
+    b4 = (code % 64) + 128
+    return sprintf("%c%c%c%c", b1, b2, b3, b4)
+  }
+
   function decode_entities(line,    prefix, rest, match_pos, code, hex, out) {
     while (match(line, /&#[0-9]+;/)) {
       prefix = substr(line, 1, RSTART - 1)
       rest = substr(line, RSTART + RLENGTH)
       code = substr(line, RSTART + 2, RLENGTH - 3)
-      line = prefix sprintf("%c", code) rest
+      line = prefix codepoint_to_utf8(code + 0) rest
     }
     while (match(line, /&#x[0-9A-Fa-f]+;/)) {
       prefix = substr(line, 1, RSTART - 1)
       rest = substr(line, RSTART + RLENGTH)
       hex = substr(line, RSTART + 3, RLENGTH - 4)
-      line = prefix sprintf("%c", strtonum("0x" hex)) rest
+      line = prefix codepoint_to_utf8(strtonum("0x" hex)) rest
     }
     gsub(/&amp;/, "&", line)
     gsub(/&lt;/, "<", line)

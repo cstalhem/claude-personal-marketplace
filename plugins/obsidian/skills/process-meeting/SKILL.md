@@ -3,36 +3,45 @@ name: process-meeting
 description: Process Obsidian meeting transcripts into structured meeting notes following vault conventions.
 context: fork
 disable-model-invocation: true
-allowed-tools: Read, Write, Edit
+allowed-tools: Bash, Read, Write, Edit
 ---
 
 # Process Meeting Transcript
 
-Arguments: $ARGUMENTS (expects: [transcript-path] [meeting-note-path])
+Arguments provided: $ARGUMENTS
 
-## Pre-processed transcript data
+## Step 1: Resolve file paths
 
-The following is the anonymized and pre-processed transcript content:
+The arguments may be relative paths or @ mentions. First, resolve them to absolute paths from the current working directory using `pwd`.
 
-!`${CLAUDE_PLUGIN_ROOT}/skills/process-meeting/scripts/process-transcript-outline.sh $1`
+- Argument 1 (transcript): the source transcript file
+- Argument 2 (meeting note): the target output file
 
-## Reference files to read
+## Step 2: Process the transcript (REQUIRED)
 
-Before formatting, read these files for context:
-- Meeting template structure and section order
-- Tagging conventions for the vault
-- Note-taking conventions
+**You MUST run this script to get the transcript content. Do NOT use Read on the transcript file.**
+```bash
+"${CLAUDE_PLUGIN_ROOT}/skills/process-meeting/scripts/process-transcript-outline.sh" "/absolute/path/to/transcript"
+```
 
-## Task
+Replace `/absolute/path/to/transcript` with the resolved absolute path from Step 1.
 
-Transform the pre-processed transcript above into a structured meeting note at $2.
+Capture the stdout output — this is your source material.
 
-1. Follow the meeting template section order and headings exactly
-2. Capture action items as tasks with owners and due dates
-3. Update front matter and apply appropriate tags
-4. Separate on-topic from off-topic discussion
-5. Preserve key decisions and outcomes
-6. Use short, scannable bullet points
-7. If transcript is incomplete, note missing context in summary
+## Step 3: Read reference files
 
-If $2 exists, merge content appropriately. If not, create the file.
+Read the vault's meeting template, tagging conventions, and note-taking conventions from `llm-context-info/`.
+
+## Step 4: Create the meeting note
+
+Transform the script output into a structured meeting note:
+
+- Follow meeting template section order exactly
+- Capture action items with owners and due dates  
+- Update front matter and tags
+- Separate on-topic from off-topic discussion
+- Use short, scannable bullet points
+
+## Step 5: Write output
+
+Write or merge the result to the resolved absolute path of argument 2. Create the file if it doesn't exist.

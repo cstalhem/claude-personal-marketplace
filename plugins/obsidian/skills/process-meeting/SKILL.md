@@ -37,11 +37,13 @@ Read the vault's meeting template, tagging conventions, and note-taking conventi
 Transform the script output into a structured meeting note:
 
 - Follow meeting template section order exactly
-- Capture action items with owners and due dates  
+- Capture action items with owners and due dates
 - Update front matter and tags
 - Separate on-topic from off-topic discussion
 - Use short, scannable bullet points
+- Write notes in the same language as was spoken in the meeting
 
 ## Step 5: Write output
 
-Write or merge the result to the resolved absolute path of argument 2. Create the file if it doesn't exist.
+- Write or merge the result to the resolved absolute path of argument 2.
+- Create the file if it doesn't exist.

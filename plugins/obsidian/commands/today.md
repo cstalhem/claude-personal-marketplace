@@ -7,7 +7,7 @@ When asked by the user, create a new note with a summary of today.
 The note should follow this structure:
 
 - Filename: `YYYY-MM-DD - Daily note.md`
-- Location: `dailies/{YYYY}/{MMM}`
+- Location: `dailies/{YYYY}/{mm-MMM}`
 - Front matter:
   - Tags: list of relevant tags for the day
   - Type: daily-summary

@@ -8,6 +8,7 @@ Claude Personal Marketplace is a collection of personal plugins that extend work
 
 ## Plugin Ideas (Todo)
 - [ ] Add a plugin for task tracking integrations (e.g., Todoist/Things).
+- [ ] Add MCP/connector for getting calendar events.
 - [ ] Add a plugin for calendar scheduling workflows.
 - [ ] Add a plugin for research capture (web clipping + highlights).
 - [ ] Add a plugin for Markdown publishing/export pipelines.

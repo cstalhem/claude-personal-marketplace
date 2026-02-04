@@ -2,41 +2,24 @@
 description: Create a daily summary for the user
 ---
 
-When asked by the user, create a new note with a summary of today.
+# Task and instructions
 
-The note should follow this structure:
+- When asked by the user, close yesterdays note and open a new one for today according to the workflow below.
+- The new note should follow the Daily Note template.
 
-- Filename: `YYYY-MM-DD - Daily note.md`
-- Location: `dailies/{YYYY}/{MM-MMM}`
-- Front matter:
-  - Tags: list of relevant tags for the day
-  - Type: daily-summary
+# Workflow
 
-Content:
+1. Check todays date and time
+2. **Close yesterdays note:**
+   - Read yesterdays note, then move all open and closed tasks to the task storage files. Follow their existing layout.
+   - Check the linked meeting files associated with the daily note (if there are any) and find any new open or closed tasks in those files. Move these to the relevant task storage files.
+   - Update relevant client and project memory files based on the daily note and meeting notes.
+3. **Open note for today:**
+   - Look at the open tasks storage and pull tasks that are overdue, due today, and a couple without due dates that are relevant to get to
+   - Check for access to a calendar. If you have it, check what is on the agenda today and include todays meetings in the daily note
+   - Set up the relevant meeting note files according to the meeting note template.
 
-```
-# {{ Title }}
+# Other considerations
 
-## Meetings
-<!-- If you have access to the users calendar, list meetings here -->
-
-## Tasks
-
-**Overdue**
-<!-- A list of all open tasks due date before the date -->
-<!-- Do not include this section if there are no overdue tasks -->
-
-**Due**
-<!-- A list of all open tasks with due date the same date -->
-<!-- Always include this section but keep it empty if there are no tasks for the day -->
-
-**Other**
-<!-- A list of open tasks without due date but that may be relevant -->
-<!-- Do not include this section if there are no relevant tasks -->
-
-## Daily notes
-
-
-```
-
-Before putting the note together, scan the vault for open tasks and check for calendar access. Never mention that there are open tasks in the templates/ directory since these are only for use in templates and not real tasks.
+- Never mention that there are open tasks in the templates/ directory since these are only for use in templates and not real tasks.
+- If there is no immediate note for yesterday, look at the latest available daily note instead, then close that day.

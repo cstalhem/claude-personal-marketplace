@@ -9,6 +9,7 @@ disable-model-invocation: true
 - The new note should follow the Daily Note template.
 - Check the Tasks skill for how to work with tasks.
 - Check `llm-context/memory-system.md` for how the memory system works.
+- Ask questions with the askUserQuestions tool to get clarifications when needed.
 
 # Workflow
 

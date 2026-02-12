@@ -1,6 +1,6 @@
 ---
 name: process-meeting
-description: Process Obsidian meeting transcripts into structured meeting notes following vault conventions.
+description: Process Obsidian meeting transcripts into structured meeting notes following vault conventions, then update project/client memory.
 argument-hint: <transcript-file> <meeting-note-file>
 context: fork
 disable-model-invocation: true
@@ -31,7 +31,7 @@ Capture the stdout output — this is your source material.
 
 ## Step 3: Read reference files
 
-Read the vault's meeting template, tagging conventions, and note-taking conventions from `llm-context-info/`.
+Read the vault's meeting template, tagging conventions, and note-taking conventions from `llm-context/`.
 
 ## Step 4: Create the meeting note
 
@@ -48,3 +48,17 @@ Transform the script output into a structured meeting note:
 
 - Write or merge the result to the resolved absolute path of argument 2.
 - Create the file if it doesn't exist.
+
+## Step 6: Update memory
+
+After creating the meeting note, update the relevant client/project memory. Read the memory system reference in `llm-context/memory-system.md` for full details.
+
+1. **Determine scope**: Infer the client or project from the meeting note's front matter (`client:`, `project:`) or from the file path.
+2. **Read ABOUT.md** for the relevant client/project to understand current state.
+3. **Update memory files** based on what was discussed:
+   - **People**: For each participant, check if a `memory/people/{name}.md` file exists. Create or update as needed with any new information about their role, opinions, or preferences.
+   - **Decisions**: Append any decisions made to `memory/activity-log.md`.
+   - **Context**: If a substantial new topic was discussed (architecture, process, integration, etc.), check if a relevant `context/` note exists. Update it or create a new one.
+   - **ABOUT.md**: If the meeting shifted project focus, introduced new key people, or changed constraints, update ABOUT.md accordingly.
+4. **Update INDEX.md** if any new files were created in `context/` or `people/`.
+5. Follow all writing rules from the memory system reference — check line counts, keep notes atomic, use templates from `templates/memory/`.

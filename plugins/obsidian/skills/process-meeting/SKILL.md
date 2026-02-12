@@ -1,6 +1,7 @@
 ---
 name: process-meeting
 description: Process Obsidian meeting transcripts into structured meeting notes following vault conventions.
+argument-hint: <transcript-file> <meeting-note-file>
 context: fork
 disable-model-invocation: true
 allowed-tools: Bash, Read, Write, Edit

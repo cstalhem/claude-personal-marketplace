@@ -1,8 +1,9 @@
 {
-  "name": "personal-marketplace",
+  "name": "cstalhem-personal-marketplace",
   "owner": {
     "name": "Carl Stålhem"
   },
+  "description": "A collection of personal plugins and forks of others.",
   "plugins": [
     {
       "name": "obsidian",

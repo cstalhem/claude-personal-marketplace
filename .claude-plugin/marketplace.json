@@ -1,19 +1,19 @@
 {
-  "name": "cstalhem-personal-marketplace",
+  "name": "cargus-forge",
   "owner": {
     "name": "Carl Stålhem"
   },
-  "description": "A collection of personal plugins and forks of others.",
+  "description": "Plugins for knowledge management, note-taking workflows, and Claude Code productivity.",
   "plugins": [
     {
       "name": "obsidian",
       "source": "./plugins/obsidian",
-      "description": "A plugin to work with Obsidian vaults."
+      "description": "Daily notes, meeting processing, task management, and note creation for Obsidian vaults."
     },
     {
       "name": "knowledge-system",
       "source": "./plugins/knowledge-system",
-      "description": "Create a self-learning knowledge system for Claude in three layers."
+      "description": "Bootstrap a three-tier knowledge system (AGENTS.md, rules, skills) for any project."
     }
   ]
 }

@@ -1,10 +1,11 @@
-# Claude Personal Marketplace
+# Cargus Forge
 
 ## About
-Claude Personal Marketplace is a collection of personal plugins that extend workflows and tools for Claude-based automation, starting with integrations for working in Obsidian vaults.
+Plugins for knowledge management, note-taking workflows, and Claude Code productivity.
 
 ## Plugin Index
-- **Obsidian** (`plugins/obsidian`): A plugin to work with Obsidian vaults. Provides command prompts like `today` and `process-meeting` for daily notes and meeting processing.
+- **Obsidian** (`plugins/obsidian`): Daily notes, meeting processing, task management, and note creation for Obsidian vaults.
+- **Knowledge System** (`plugins/knowledge-system`): Bootstrap a three-tier knowledge system (AGENTS.md, rules, skills) for any project with guided research and adaptive questioning.
 
 ## Plugin Ideas (Todo)
 - [ ] Add a plugin for task tracking integrations (e.g., Todoist/Things).

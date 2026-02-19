@@ -1,7 +1,7 @@
 {
   "name": "knowledge-system",
   "description": "Create a self-learning knowledge system for Claude in three layers.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Carl Stålhem",
     "url": "https://github.com/cstalhem"

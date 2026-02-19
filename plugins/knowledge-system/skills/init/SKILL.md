@@ -1,5 +1,5 @@
 ---
-name: init
+name: init-memory
 description: "Bootstrap a three-tier knowledge system (AGENTS.md + rules + skills) for any project with guided research and adaptive questioning"
 disable-model-invocation: true
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, Task, WebSearch, WebFetch, AskUserQuestion
